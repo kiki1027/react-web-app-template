@@ -1,5 +1,5 @@
 // 登录页
-const LoginPage2 = () => {
+const LoginPage3 = () => {
   return <div>LoginPage</div>;
 };
 
