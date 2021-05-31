@@ -49,14 +49,14 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
     'react/jsx-one-expression-per-line': 0,
     'react-hooks/rules-of-hooks': 'error',
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
+    'no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': 1,
     // react 17之后无需手动在 jsx 中 import React
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 0,
+    'react/react-in-jsx-scope': 0,
     'promise/always-return': 0,
     'promise/catch-or-return': 0,
-    'no-use-before-define': 'off',
+    'no-use-before-define': 0,
     'import/prefer-default-export': 0,
     'react/jsx-props-no-spreading': 0,
     'react/no-array-index-key': 0,
@@ -64,10 +64,10 @@ module.exports = {
     /**
      * @description rules of @typescript-eslint
      */
-    '@typescript-eslint/prefer-interface': 'off', // also want to use 'type'
-    '@typescript-eslint/explicit-function-return-type': 'off', // annoying to force return type
-    '@typescript-eslint/indent': 'off', // avoid conflict with airbnb
-    '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/prefer-interface': 0, // also want to use 'type'
+    '@typescript-eslint/explicit-function-return-type': 0, // annoying to force return type
+    '@typescript-eslint/indent': 0, // avoid conflict with airbnb
+    '@typescript-eslint/no-use-before-define': [2],
 
     /**
      * @description rules of eslint-plugin-prettier

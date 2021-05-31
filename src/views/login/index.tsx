@@ -1,6 +1,6 @@
 // 登录页
-const LoginPage3 = () => {
+const LoginPage2 = () => {
   return <div>LoginPage</div>;
 };
 
-export default LoginPage;
+export default LoginPage2;
