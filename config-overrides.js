@@ -1,7 +1,19 @@
-const { override, fixBabelImports, addWebpackAlias, removeModuleScopePlugin } = require('customize-cra');
+const {
+  override,
+  fixBabelImports,
+  addWebpackAlias,
+  removeModuleScopePlugin,
+  addWebpackPlugin,
+} = require('customize-cra');
 const path = require('path');
 const webpack = require('webpack');
-const webapck = require('webpack');
+const GitRevisionPlugin = require('git-revision-webpack-plugin');
+
+const gitRevisionPlugin = new GitRevisionPlugin();
+const { getEnvConf } = require('./scripts/utils');
+
+const nodeEnv = process.env.NODE_ENV;
+console.log('process.env: ', process.env);
 
 module.exports = override(
   // antd 按需加载配置
@@ -22,6 +34,17 @@ module.exports = override(
   }),
   // 去除 src/ 限制
   removeModuleScopePlugin(),
+  // 增加全局环境变量
+  addWebpackPlugin(
+    new webpack.DefinePlugin({
+      'process.env.CONF': JSON.stringify({
+        VERSION: gitRevisionPlugin.version(),
+        COMMIT_HASH: gitRevisionPlugin.commithash(),
+        BRANCH: gitRevisionPlugin.branch(),
+        ...getEnvConf(nodeEnv, 'test'),
+      }),
+    }),
+  ),
   // addWebpackModuleRule({
   //   test: /\.css$/,
   //   use: [

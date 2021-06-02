@@ -29,6 +29,8 @@ module.exports = {
   env: {
     browser: true, // enable all browser global variables
     jest: true,
+    es6: true,
+    node: true,
   },
   plugins: ['@typescript-eslint', 'react-hooks', 'promise', 'prettier'],
   rules: {

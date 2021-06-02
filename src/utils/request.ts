@@ -8,7 +8,7 @@ const token = localStorage.getItem('token');
 
 const instance = axios.create({
   //   timeout: 5000,  // 超时时间
-  baseURL: envConf.API,
+  baseURL: envConf.SERVICE_API,
   paramsSerializer: (params) => {
     // 参数序列化：自动 encode
     return qs.stringify(params, { arrayFormat: 'brackets', skipNulls: true });
