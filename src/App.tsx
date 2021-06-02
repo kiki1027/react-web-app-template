@@ -1,15 +1,13 @@
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import routes from '@routes';
 
-// A special wrapper for <Route> that knows how to
-// handle "sub"-routes by passing them in a `routes`
-// prop to the component it renders.
 function RouteWithSubRoutes(route) {
   return (
     <Route
       path={route.path}
       render={(props) => (
-        // pass the sub-routes down to keep nesting
+        // sub-routes
         <route.component {...props} routes={route.routes} />
       )}
     />
@@ -17,7 +15,6 @@ function RouteWithSubRoutes(route) {
 }
 
 // TODO: 判断有无权限，无权限重定向到 /login
-
 const App = () => {
   return (
     <Router>

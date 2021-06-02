@@ -58,4 +58,6 @@ instance.interceptors.response.use(
   },
 );
 
+export const BlRequest = instance;
+
 export default instance;

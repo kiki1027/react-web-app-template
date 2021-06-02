@@ -12,7 +12,9 @@
       "@components": ["src/components"],
       "@components/*": ["src/components/*"],
       "@routes": ["src/routes"],
-      "@routes/*": ["src/routes/*"]
+      "@routes/*": ["src/routes/*"],
+      "@services": ["src/services"],
+      "@services/*": ["src/services/*"]
     }
   }
 }
