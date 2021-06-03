@@ -1,24 +1,24 @@
-import React from 'react';
-
-// components
 import { Form, Input, Button, Row, Col } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-
-// services
-import { login } from '@services/login';
-
-// styles
+import { useAuth } from '@components/app/provider';
+import { useLocation, useHistory } from 'react-router-dom';
 import styles from './styles.module.scss';
 
 // 登录页
 const LoginPage = () => {
+  const auth = useAuth();
+  const location = useLocation();
+  const history = useHistory();
   const onFinish = (values: any) => {
     console.log('Success:', values);
-    login(values)
+    auth
+      .signIn(values)
       .then((res) => {
-        console.log('res: ', res);
+        const { from } = (location?.state ?? { pathname: '/' }) as { from: Location };
+        console.log('from: ', from);
+        history.push(from);
       })
-      .catch(console.error);
+      .catch(console.log);
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -41,7 +41,7 @@ const LoginPage = () => {
 
             <Form.Item>
               <Button type="primary" htmlType="submit" className={styles.loginFormButton}>
-                Log in
+                登录
               </Button>
             </Form.Item>
           </Form>

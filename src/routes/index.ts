@@ -1,23 +1,11 @@
 import Loadable from '@utils/loadable';
 
-const LoginPage = Loadable({ loader: () => import('@views/login') });
-
-// Some folks find value in a centralized route config.
-// A route config is just data. React is great at mapping
-// data into components, and <Route> is a component.
-
-// Our route config is just an array of logical "routes"
-// with `path` and `component` props, ordered the same
-// way you'd do inside a `<Switch>`.
+const Page1 = Loadable({ loader: () => import('@views/page1') });
 
 const routes = [
   {
-    path: '/login',
-    component: LoginPage,
-  },
-  {
     path: '/page1',
-    // component: Tacos,
+    component: Page1,
     routes: [
       {
         path: '/page1/subPage1',
@@ -30,5 +18,14 @@ const routes = [
     ],
   },
 ];
+
+/**
+ * 得到第一级路由的路径
+ * @date 2021-06-03
+ * @returns {string}
+ */
+export const useFirstRoutePath = () => {
+  return routes?.[0]?.path;
+};
 
 export default routes;

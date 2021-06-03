@@ -14,6 +14,7 @@ module.exports = {
     'plugin:promise/recommended',
     'plugin:prettier/recommended',
     // 'prettier/@typescript-eslint'
+    'plugin:react-hooks/recommended',
   ],
   settings: {
     'import/parsers': {
@@ -48,20 +49,21 @@ module.exports = {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. '@typescript-eslint/explicit-function-return-type': 'off',
     'no-useless-constructor': 0,
-    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
-    'react/jsx-one-expression-per-line': 0,
-    'react-hooks/rules-of-hooks': 'error',
     'no-unused-vars': 0,
     '@typescript-eslint/no-unused-vars': 1,
+    'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
+    'react/jsx-one-expression-per-line': 0,
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     // react 17之后无需手动在 jsx 中 import React
     'react/jsx-uses-react': 0,
     'react/react-in-jsx-scope': 0,
+    'react/jsx-props-no-spreading': 0,
+    'react/no-array-index-key': 0,
     'promise/always-return': 0,
     'promise/catch-or-return': 0,
     'no-use-before-define': 0,
     'import/prefer-default-export': 0,
-    'react/jsx-props-no-spreading': 0,
-    'react/no-array-index-key': 0,
 
     /**
      * @description rules of @typescript-eslint

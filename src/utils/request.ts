@@ -31,18 +31,23 @@ instance.interceptors.request.use(
 // 添加响应拦截器
 instance.interceptors.response.use(
   (response: AxiosResponse) => {
+    console.log('response: ', response);
     if (response.status === 200) {
       return Promise.resolve(response);
     }
     return Promise.reject(response);
   },
   (error: AxiosError) => {
+    // fake 登录
+    if (error?.config?.url === '/login') {
+      return Promise.resolve(error);
+    }
     // 相应错误处理
-    // 比如： token 过期， 无权限访问， 路径不存在， 服务器问题等
+    // 比如： token 过期， 无权限访问， api不存在， 服务器问题等
     switch (error.response?.status) {
       case 401:
         // token 过期
-        window.location.href = '/'; // 返回登录页
+        window.location.href = '/login'; // 返回登录页
         break;
       case 403:
         break;
